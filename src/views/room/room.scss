@@ -1,0 +1,9 @@
+.home {
+    display: flex;
+    justify-content: flex-end;
+
+    .page-wrap {
+        width: 100%;
+        max-width: calc(100% - 256px);
+    }
+}
