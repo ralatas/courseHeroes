@@ -12,8 +12,7 @@
             <v-spacer/>
 
             <v-btn
-                href="https://github.com/vuetifyjs/vuetify/releases/latest"
-                target="_blank"
+                @click.stop="showAuth = true"
                 text
             >
                 <span class="mr-2">Вход</span>
@@ -28,6 +27,8 @@
             <v-spacer />
             <div>&copy; {{ new Date().getFullYear() }}</div>
         </v-footer>
+
+        <authorization v-if="showAuth" @close="showAuth = false"/>
     </v-app>
 </template>
 
