@@ -20,7 +20,6 @@ export default {
         submitForm() {
             this.$store.dispatch('user/login', { email: this.email, password: this.password }).then((success) => {
                 if (success) {
-                    this.$store.dispatch('getAllCountries')
                     this.$router.push({ name: 'room' })
                 } else {
                     alert('Invalid login or password')

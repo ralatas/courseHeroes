@@ -3,11 +3,30 @@
         <v-container fluid>
             <v-row dense>
                 <v-col
-                    v-for="card in teachers"
-                    :key="card.title"
-                    :cols="card.flex"
+                    v-for="item in teachers"
+                    :key="item.id"
+                    :cols="6"
                 >
-                    <v-card/>
+                    <v-card>
+                        <div class="d-flex flex-no-wrap justify-space-between">
+                            <div>
+                                <v-card-title
+                                    class="headline"
+                                    v-text="item.fullname"
+                                />
+
+                                <v-card-subtitle v-text="item.phone"/>
+                            </div>
+
+                            <v-avatar
+                                class="ma-3"
+                                size="125"
+                                tile
+                            >
+                                <v-img :src="item.image"/>
+                            </v-avatar>
+                        </div>
+                    </v-card>
                 </v-col>
             </v-row>
         </v-container>
