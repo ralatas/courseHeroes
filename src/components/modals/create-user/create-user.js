@@ -23,6 +23,7 @@ export default {
                 password: '',
                 image: null,
                 description: '',
+                birthday: '26.06.1999'
             }
         }
     },

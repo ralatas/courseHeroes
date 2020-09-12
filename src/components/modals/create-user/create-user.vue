@@ -66,7 +66,7 @@
                 </div>
 
                 <div v-if="state === 'complete'" class="d-flex align-center justify-center text-md-h4 font-weight-bold complete">
-                    Направление создано
+                    Преподаватель создан
                 </div>
             </v-card-text>
 
