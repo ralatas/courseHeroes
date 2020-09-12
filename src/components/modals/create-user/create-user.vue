@@ -5,7 +5,7 @@
     >
         <v-card>
             <v-card-title>
-                <span class="headline">Создание направления</span>
+                <span class="headline">Создание {{ types[userType] }}</span>
                 <v-spacer/>
                 <v-btn
                     class="mx-2"
@@ -21,26 +21,6 @@
             <v-card-text>
                 <div v-show="state === 'initial'" class="content" >
                     <div class="part part-left">
-                        <v-text-field
-                            v-model="form.name"
-                            label="Название направления"
-                            required
-                        />
-
-                        <v-select
-                            v-model="form.teacherId"
-                            :items="items"
-                            label="Выбери преподавателя"
-                        />
-
-                        <v-textarea
-                            v-model="form.topic"
-                            name="short-description"
-                            label="Краткое описание"
-                        />
-                    </div>
-
-                    <div class="part part-right">
                         <v-file-input
                             v-model="form.image"
                             @change="change"
@@ -48,13 +28,33 @@
                         />
                         <img class="preview" :src="preview" >
                     </div>
-                </div>
 
-                <div v-show="state === 'initial'" class="content">
-                    <editor
-                        v-model="form.description"
-                        title="Кем ты станешь когда закончишь учебу"
-                    />
+                    <div class="part part-right">
+                        <v-text-field
+                            v-model="form.email"
+                            label="E-mail"
+                            required
+                        />
+
+                        <v-text-field
+                            v-model="form.name"
+                            label="ФИО"
+                            required
+                        />
+
+                        <v-text-field
+                            v-model="form.password"
+                            label="Пароль"
+                            required
+                            type="password"
+                        />
+
+                        <v-textarea
+                            v-model="form.description"
+                            name="short-description"
+                            label="Описание"
+                        />
+                    </div>
                 </div>
 
                 <div v-if="state === 'loading'" class="d-flex align-center justify-center loading">
@@ -83,5 +83,5 @@
     </v-dialog>
 </template>
 
-<script src="./create-direction.js"></script>
-<style lang="scss" scoped src="./create-direction.scss"></style>
+<script src="./create-user.js"></script>
+<style lang="scss" scoped src="./create-user.scss"></style>

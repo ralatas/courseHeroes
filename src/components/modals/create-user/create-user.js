@@ -1,20 +1,28 @@
-import Editor from '@/components/editor/editor.vue';
 import HTTP from '@/common/http-common';
 
 export default {
-    name: 'CreateDirection',
+    name: 'CreateUser',
+    props: {
+        userType: {
+            type: String,
+            default: 'student'
+        }
+    },
     data() {
         return {
+            types: {
+                student: 'студента',
+                teacher: 'преподавателя'
+            },
             dialog: true,
-            items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
             preview: null,
             state: 'initial',
             form: {
+                email: '',
                 name: '',
-                teacherId: '',
-                topic: '',
+                password: '',
                 image: null,
-                description: ''
+                description: '',
             }
         }
     },
@@ -25,17 +33,20 @@ export default {
                     this.$emit('close')
                 }, 500)
             }
-        }
+        },
+
     },
     methods: {
         submitForm() {
             this.state = 'loading'
             const data = new FormData();
             Object.keys(this.form).forEach(key => {
-                data.append(key, this.form[key])
+                if (this.userType === 'teacher' || (this.userType === 'student' && key !== 'description')) {
+                    data.append(key, this.form[key])
+                }
             })
 
-            HTTP.post('specialities', data, { headers: { 'Content-Type': 'multipart/form-data' } })
+            HTTP.post(`register/${this.userType}`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
                 .then(res => {
                     this.state = 'complete'
                     console.log(res)
@@ -47,7 +58,4 @@ export default {
             this.preview = URL.createObjectURL(file);
         }
     },
-    components: {
-        Editor
-    }
 }
