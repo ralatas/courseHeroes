@@ -2,7 +2,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/api/': {
-                target: 'http://handh-04dcbf6c.localhost.run/',
+                target: 'http://192.168.44.90:8080/',
                 secure: false
             }
         },

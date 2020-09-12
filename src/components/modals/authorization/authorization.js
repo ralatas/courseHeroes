@@ -3,7 +3,7 @@ export default {
     data() {
         return {
             dialog: true,
-            login: '',
+            email: '',
             password: '',
         }
     },
@@ -12,13 +12,13 @@ export default {
             if (!newVal) {
                 setTimeout(() => {
                     this.$emit('close')
-                }, 1000)
+                }, 500)
             }
         }
     },
     methods: {
         submitForm() {
-            this.$store.dispatch('user/login', this.form).then((success) => {
+            this.$store.dispatch('user/login', { email: this.email, password: this.password }).then((success) => {
                 if (success) {
                     this.$store.dispatch('getAllCountries')
                     this.$router.push({ name: 'room' })

@@ -1,4 +1,4 @@
-import { HTTP } from '@/common/http-common'
+import HTTP from '@/common/http-common'
 
 export default {
     namespaced: true,

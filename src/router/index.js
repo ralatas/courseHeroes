@@ -26,6 +26,11 @@ const routes = [
                 name: 'room-schedule',
                 component: () => import('../views/room/schedule/schedule.vue')
             },
+            {
+                path: 'directions',
+                name: 'room-directions',
+                component: () => import('../views/room/directions/directions.vue')
+            },
         ]
     }
 ]

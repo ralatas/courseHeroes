@@ -7,7 +7,7 @@ const HTTP = axios.create({
 const token = localStorage.getItem('token')
 
 if (token) {
-    HTTP.defaults.headers.common['X-Auth-Token'] = `Bearer ${token}`
+    HTTP.defaults.headers.common.Authorization = `Bearer ${token}`
 }
 
 const ErrorIntesept = (e) => (
@@ -24,6 +24,6 @@ const ErrorIntesept = (e) => (
     })
 )
 
-HTTP.interceptors.response.use(r => r.data.data, ErrorIntesept)
+HTTP.interceptors.response.use(r => r.data, ErrorIntesept)
 
-export { HTTP }
+export default HTTP
