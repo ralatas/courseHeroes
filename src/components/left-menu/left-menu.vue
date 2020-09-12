@@ -1,6 +1,9 @@
 <template>
     <div class="menu">
         <v-navigation-drawer
+            v-model="drawer"
+            :expand-on-hover="expandOnHover"
+            :permanent="permanent"
             color="primary"
             absolute
             dark

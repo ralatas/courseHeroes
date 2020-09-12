@@ -10,15 +10,11 @@
             <v-card-text>
                 <v-text-field
                     v-model="login"
-                    :counter="10"
-                    :error-messages="errors"
                     label="E-mail"
                     required
                 />
                 <v-text-field
                     v-model="password"
-                    :counter="10"
-                    :error-messages="errors"
                     label="Password"
                     required
                 />
@@ -28,7 +24,12 @@
                 <v-btn
                     color="blue darken-1"
                     text
-                    @click="dialog = false"
+                    @click.stop="dialog = false"
+                >Закрыть</v-btn>
+                <v-btn
+                    color="blue darken-1"
+                    text
+                    @click.stop="submitForm"
                 >Войти</v-btn>
             </v-card-actions>
         </v-card>
