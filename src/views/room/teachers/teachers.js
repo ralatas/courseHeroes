@@ -4,7 +4,7 @@ import CreateUser from '@/components/modals/create-user/create-user.vue'
 export default {
     name: 'Directions',
     created() {
-        HTTP.get('teachers')
+        HTTP.get('http://handh-ac972a82.localhost.run/teachers')
             .then(({ data }) => {
                 this.teachers = data
             }).catch((err) => {

@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         getData() {
-            HTTP.get('specialities')
+            HTTP.get('http://handh-ac972a82.localhost.run/specialities')
                 .then(({ data }) => {
                     this.directions = data
                     this.loading = false
@@ -47,7 +47,7 @@ export default {
             this.getData()
         },
         remove(id) {
-            HTTP.delete('specialities', { id })
+            HTTP.delete('http://handh-ac972a82.localhost.run/specialities', { id })
                 .then(() => {
                     console.log('Удалилось')
                 }).catch((err) => {
