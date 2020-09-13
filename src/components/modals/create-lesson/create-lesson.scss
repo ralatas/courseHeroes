@@ -1,0 +1,47 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+
+    .part {
+        flex-grow: 1;
+        max-width: 50%;
+
+        &-left {
+            padding-right: 20px;
+        }
+        &-right {
+            padding-left: 20px;
+
+            .preview {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.loading, .complete {
+    min-height: 400px;
+}
+
+.table {
+    width: 210px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .day {
+        width: 30px;
+        height: 30px;
+        border: 1px solid gray;
+        cursor: pointer;
+
+        &:active {
+            background-color: grey;
+        }
+    }
+
+    .header {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+}

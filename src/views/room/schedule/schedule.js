@@ -1,9 +1,11 @@
 import HTTP from '@/common/http-common';
+import CreateLesson from '@/components/modals/create-lesson/create-lesson.vue'
 
 export default {
     name: 'Schedule',
     created() {
         this.getData()
+        this.getDataDir()
         const arr = {}
         for (let i = 1; i < 31; i += 1) {
             arr[i] = { id: i }
@@ -13,7 +15,9 @@ export default {
     data() {
         return {
             days: {},
-            activities: []
+            activities: [],
+            loading: true,
+            showCreate: false
         }
     },
     methods: {
@@ -27,8 +31,23 @@ export default {
                     console.log(err)
                 })
         },
+        getDataDir() {
+            HTTP.get('specialities')
+                .then(({ data }) => {
+                    this.directions = data
+                    this.loading = false
+                }).catch((err) => {
+                    console.log(err)
+                })
+        },
         openShedule() {
-            console.log('Открыть рассписание')
+            this.showCreate = true
+        },
+        closeCreate() {
+            this.showCreate = false
         }
+    },
+    components: {
+        CreateLesson
     }
 }
