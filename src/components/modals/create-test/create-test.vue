@@ -63,7 +63,7 @@
                                 :items="tasksTypes"
                                 item-text="label"
                                 item-value="key"
-                                label="Выберите направление"
+                                label="Выберите тип вопроса"
                             />
                         </v-col>
 
