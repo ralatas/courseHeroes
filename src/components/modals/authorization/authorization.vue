@@ -5,7 +5,7 @@
     >
         <v-card>
             <v-card-title>
-                <span class="headline">Создание направления</span>
+                <span class="headline">Вход</span>
                 <v-spacer/>
                 <v-btn
                     class="mx-2"

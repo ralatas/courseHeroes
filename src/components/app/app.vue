@@ -12,12 +12,21 @@
             <v-spacer/>
 
             <v-btn
+                v-if="!authorized"
                 @click.stop="showAuth = true"
                 text
             >
                 <span class="mr-2">Вход</span>
                 <v-icon>mdi-open-in-new</v-icon>
             </v-btn>
+            <router-link v-else :to="{name: 'room'}">
+                <v-avatar size="36px">
+                    <img
+                        alt="Avatar"
+                        src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                    >
+                </v-avatar>
+            </router-link>
         </v-app-bar>
 
         <v-main>

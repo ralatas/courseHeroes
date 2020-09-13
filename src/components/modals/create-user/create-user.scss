@@ -1,23 +1,4 @@
-.content {
-    display: flex;
-    justify-content: space-between;
 
-    .part {
-        flex-grow: 1;
-        max-width: 50%;
-
-        &-left {
-            padding-right: 20px;
-
-            .preview {
-                width: 100%;
-            }
-        }
-        &-right {
-            padding-left: 20px;
-        }
-    }
-}
 
 .loading, .complete {
     min-height: 400px;

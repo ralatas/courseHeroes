@@ -1,4 +1,5 @@
 import HTTP from '@/common/http-common';
+import Profile from '@/components/forms/profile/profile.vue';
 
 export default {
     name: 'CreateUser',
@@ -15,7 +16,6 @@ export default {
                 teacher: 'преподавателя'
             },
             dialog: true,
-            preview: null,
             state: 'initial',
             form: {
                 email: '',
@@ -38,25 +38,25 @@ export default {
 
     },
     methods: {
-        submitForm() {
+        submitForm(form) {
             this.state = 'loading'
             const data = new FormData();
-            Object.keys(this.form).forEach(key => {
+            Object.keys(form).forEach(key => {
                 if (this.userType === 'teacher' || (this.userType === 'student' && key !== 'description')) {
-                    data.append(key, this.form[key])
+                    data.append(key, form[key])
                 }
             })
 
-            HTTP.post(`http://handh-04dcbf6c.localhost.run/api/register/${this.userType}`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
+            HTTP.post(`register/${this.userType}`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
                 .then(res => {
                     this.state = 'complete'
                     console.log(res)
                 }).catch((err) => {
                     console.log(err)
                 })
-        },
-        change(file) {
-            this.preview = URL.createObjectURL(file);
         }
     },
+    components: {
+        Profile
+    }
 }

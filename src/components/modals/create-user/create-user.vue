@@ -20,41 +20,7 @@
             </v-card-title>
             <v-card-text>
                 <div v-show="state === 'initial'" class="content" >
-                    <div class="part part-left">
-                        <v-file-input
-                            v-model="form.image"
-                            @change="change"
-                            label="Картинка"
-                        />
-                        <img class="preview" :src="preview" >
-                    </div>
-
-                    <div class="part part-right">
-                        <v-text-field
-                            v-model="form.email"
-                            label="E-mail"
-                            required
-                        />
-
-                        <v-text-field
-                            v-model="form.name"
-                            label="ФИО"
-                            required
-                        />
-
-                        <v-text-field
-                            v-model="form.password"
-                            label="Пароль"
-                            required
-                            type="password"
-                        />
-
-                        <v-textarea
-                            v-model="form.description"
-                            name="short-description"
-                            label="Описание"
-                        />
-                    </div>
+                    <profile :form="form" @save="submitForm" />
                 </div>
 
                 <div v-if="state === 'loading'" class="d-flex align-center justify-center loading">
@@ -69,16 +35,6 @@
                     Преподаватель создан
                 </div>
             </v-card-text>
-
-            <v-card-actions>
-                <v-spacer/>
-                <v-btn
-                    v-if="state === 'initial'"
-                    color="blue darken-1"
-                    text
-                    @click.stop="submitForm"
-                >Создать</v-btn>
-            </v-card-actions>
         </v-card>
     </v-dialog>
 </template>

@@ -21,14 +21,12 @@ export default {
             this.$store.dispatch('user/login', { email: this.email, password: this.password }).then((success) => {
                 if (success) {
                     this.$router.push({ name: 'room' })
+                    this.dialog = false
                 } else {
                     alert('Invalid login or password')
                 }
                 return true
             })
-        },
-        exit() {
-            this.$store.dispatch('user/logout')
         }
     }
 }
