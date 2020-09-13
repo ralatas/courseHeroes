@@ -1,5 +1,5 @@
 import HTTP from '@/common/http-common';
-import Profile from '@/components/forms/profile/profile.vue';
+import ProfileUser from '@/components/forms/profile-user/profile-user.vue';
 
 export default {
     name: 'CreateUser',
@@ -57,6 +57,6 @@ export default {
         }
     },
     components: {
-        Profile
+        ProfileUser
     }
 }

@@ -1,11 +1,11 @@
 <template>
     <v-dialog
         v-model="dialog"
-        max-width="800"
+        max-width="1000"
     >
         <v-card>
             <v-card-title>
-                <span class="headline">Создание {{ types[userType] }}</span>
+                <span v-if="state === 'initial'" class="headline">{{ data.name }}</span>
                 <v-spacer/>
                 <v-btn
                     class="mx-2"
@@ -18,11 +18,11 @@
                     <v-icon dark>mdi-close</v-icon>
                 </v-btn>
             </v-card-title>
-            <v-card-text>
-                <div v-show="state === 'initial'" class="content" >
-                    <profile-user :form="form" @save="submitForm" />
+            <v-card-text :style="{minHeight: '300px'}">
+                <div v-if="state === 'initial'">
+                    <p class="font-weight-bold"><i>Преподаватель:</i> {{ data.user.name }}</p>
+                    <div v-html="data.description" />
                 </div>
-
                 <div v-if="state === 'loading'" class="d-flex align-center justify-center loading">
                     <v-progress-circular
                         :size="50"
@@ -30,14 +30,21 @@
                         indeterminate
                     />
                 </div>
-
                 <div v-if="state === 'complete'" class="d-flex align-center justify-center text-md-h4 font-weight-bold complete">
-                    Создание {{ types[userType] }} - успех!
+                    Поздравляем вы выбрали {{ data.name }}
                 </div>
             </v-card-text>
+            <v-card-actions v-if="state === 'initial'">
+                <v-spacer/>
+                <v-btn
+                    v-if="user.speciality && data.id !== user.speciality.id "
+                    color="blue darken-1"
+                    text
+                    @click.stop="select"
+                >Выбрать</v-btn>
+            </v-card-actions>
         </v-card>
     </v-dialog>
 </template>
 
-<script src="./create-user.js"></script>
-<style lang="scss" scoped src="./create-user.scss"></style>
+<script src="./detail-direction.js"></script>

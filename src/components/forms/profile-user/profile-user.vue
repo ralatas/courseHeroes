@@ -49,10 +49,10 @@
                 color="primary darken-1"
                 text
                 @click.stop="submitForm"
-            >Создать</v-btn>
+            >Сохранить</v-btn>
         </div>
     </div>
 </template>
 
-<script src="./profile.js"></script>
-<style src="./profile.scss" lang="scss" scoped></style>
+<script src="./profile-user.js"></script>
+<style src="./profile-user.scss" lang="scss" scoped></style>

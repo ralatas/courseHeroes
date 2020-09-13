@@ -1,5 +1,5 @@
 import { mapState } from 'vuex'
-import Profile from '@/components/forms/profile/profile.vue'
+import ProfileUser from '@/components/forms/profile-user/profile-user.vue'
 
 export default {
     name: 'Profile',
@@ -22,6 +22,6 @@ export default {
         },
     },
     components: {
-        Profile
+        ProfileUser
     }
 }

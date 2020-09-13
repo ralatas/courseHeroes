@@ -1,0 +1,30 @@
+.table {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .day {
+    width: 100px;
+    height: 100px;
+    border: 1px solid gray;
+    cursor: pointer;
+  }
+
+  .header {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.schedule-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

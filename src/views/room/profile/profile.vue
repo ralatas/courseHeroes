@@ -3,7 +3,7 @@
         <v-row dense>
             <v-col
                 :cols="12"
-                class="d-flex justify-center"
+                class="d-flex justify-end"
             >
                 <v-btn
                     depressed
@@ -18,7 +18,7 @@
                 class="d-flex justify-center"
                 v-if="user"
             >
-                <profile :form="user" @save="submitForm" />
+                <profile-user :form="user" @save="submitForm" />
             </v-col>
         </v-row>
     </v-container>

@@ -23,7 +23,7 @@
                 <v-avatar size="36px">
                     <img
                         alt="Avatar"
-                        src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                        src="https://randomuser.me/api/portraits/men/45.jpg"
                     >
                 </v-avatar>
             </router-link>

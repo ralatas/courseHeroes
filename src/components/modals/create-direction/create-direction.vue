@@ -29,8 +29,10 @@
 
                         <v-select
                             v-model="form.teacherId"
-                            :items="items"
+                            :items="teachers"
                             label="Выбери преподавателя"
+                            item-text="name"
+                            item-value="id"
                         />
 
                         <v-textarea

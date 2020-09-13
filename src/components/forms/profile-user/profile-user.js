@@ -14,7 +14,10 @@ export default {
         form: {
             immediate: true,
             handler(data) {
-                this.localForm = { ...data }
+                const temp = { ...data }
+                this.preview = 'https://randomuser.me/api/portraits/men/45.jpg'
+                delete temp.image
+                this.localForm = temp
             }
         }
     },

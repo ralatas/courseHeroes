@@ -15,9 +15,9 @@ export default {
         }
     },
     actions: {
-        getUser({ commit }, id) {
-            HTTP.post(`profile/${id}`)
-                .then(({ user }) => {
+        getUser({ commit }) {
+            HTTP.get('user')
+                .then((user) => {
                     commit('setUser', user)
                 }).catch((err) => {
                     console.log(err)

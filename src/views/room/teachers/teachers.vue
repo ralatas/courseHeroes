@@ -12,10 +12,10 @@
                             <div>
                                 <v-card-title
                                     class="headline"
-                                    v-text="item.fullname"
+                                    v-text="item.name"
                                 />
 
-                                <v-card-subtitle v-text="item.phone"/>
+                                <v-card-subtitle v-text="item.email"/>
                             </div>
 
                             <v-avatar
@@ -23,7 +23,7 @@
                                 size="125"
                                 tile
                             >
-                                <v-img :src="item.image"/>
+                                <v-img :src="`https://randomuser.me/api/portraits/men/${ getRandomInt(1, 100) }.jpg`"/>
                             </v-avatar>
                         </div>
                     </v-card>

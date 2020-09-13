@@ -3,7 +3,7 @@
         <v-container fluid>
             <v-row dense>
                 <v-col
-                    v-for="item in teachers"
+                    v-for="item in students"
                     :key="item.id"
                     :cols="6"
                 >
@@ -12,8 +12,10 @@
                             <div>
                                 <v-card-title
                                     class="headline"
-                                    v-text="item.fullname"
+                                    v-text="item.name"
                                 />
+
+                                <v-card-subtitle v-text="item.email"/>
                             </div>
 
                             <v-avatar
@@ -21,7 +23,7 @@
                                 size="125"
                                 tile
                             >
-                                <v-img :src="item.image"/>
+                                <v-img :src="`https://randomuser.me/api/portraits/men/${ getRandomInt(1, 100) }.jpg`"/>
                             </v-avatar>
                         </div>
                     </v-card>
@@ -37,7 +39,7 @@
             </v-btn>
             <create-user
                 v-if="showCreate"
-                user-type="teacher"
+                user-type="student"
                 @close="showCreate = false"
             />
         </div>

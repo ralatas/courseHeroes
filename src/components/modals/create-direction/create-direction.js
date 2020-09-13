@@ -6,7 +6,6 @@ export default {
     data() {
         return {
             dialog: true,
-            items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
             preview: null,
             state: 'initial',
             form: {
@@ -15,8 +14,17 @@ export default {
                 topic: '',
                 image: null,
                 description: ''
-            }
+            },
+            teachers: []
         }
+    },
+    created() {
+        HTTP.get('teachers')
+            .then(({ data }) => {
+                this.teachers = data
+            }).catch((err) => {
+                console.log(err)
+            })
     },
     watch: {
         dialog(newVal) {
