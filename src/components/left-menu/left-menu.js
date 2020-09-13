@@ -11,6 +11,7 @@ export default {
                 { title: 'Учителя', route: '/room/teachers', icon: 'mdi-account' },
                 { title: 'Профиль', route: '/room/profile', icon: 'mdi-image' },
                 { title: 'Рассписание', route: '/room/schedule', icon: 'mdi-help-box' },
+                { title: 'Задания', route: '/room/tests', icon: 'mdi-help-box' }
             ],
         }
     },
