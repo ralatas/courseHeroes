@@ -28,7 +28,7 @@
             <v-row v-if="type !== 'input'" dense>
                 <v-col cols="6">
                     <v-text-field
-                        v-model="newVariant"
+                        v-model="newAnswer"
                         label="Вариант ответа"
                         required
                     />
@@ -41,7 +41,7 @@
                 >
                     <v-btn
                         color="primary"
-                        @click.stop="addVariant(newVariant)"
+                        @click.stop="addVariant(newAnswer)"
                     >
                         Добавить вариант ответа
                     </v-btn>
@@ -49,25 +49,25 @@
             </v-row>
 
             <v-radio-group
-                v-if="variants && variants.length"
+                v-if="answers && answers.length"
                 :value="answers"
                 :multiple="type === 'checkbox'"
-                @change="val => onChange('answers', val)"
+                @change="val => onChange('rightAnswers', val)"
             >
                 <v-radio
-                    v-for="variant in variants"
-                    :key="variant.id"
-                    :label="variant.answer"
-                    :value="variant.id"
+                    v-for="answer in answers"
+                    :key="answer.id"
+                    :label="answer.answer"
+                    :value="answer.id"
                 />
             </v-radio-group>
 
             <v-text-field
                 v-if="type === 'input'"
-                :value="answers"
+                :value="rightAnswers"
                 label="Ответ"
                 required
-                @input="val => onChange('answers', val)"
+                @input="val => onChange('rightAnswers', val)"
             />
         </v-card-text>
     </v-card>

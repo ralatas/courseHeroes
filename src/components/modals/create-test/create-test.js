@@ -19,10 +19,12 @@ export default {
         Task,
         Editor
     },
+    props: {
+        specialities: Array
+    },
     data() {
         return {
             dialog: true,
-            specialities: ['Foo', 'Bar', 'Fizz', 'Buzz'].map((e, id) => ({ id, name: e })),
             tasksTypes,
             preview: null,
             state: 'initial',
@@ -49,10 +51,10 @@ export default {
         submitForm() {
             this.state = 'loading'
 
-            HTTP.post('http://handh-04dcbf6c.localhost.run/api/tasks', this.form)
-                .then(res => {
+            HTTP.post('/tests', this.form)
+                .then(() => {
                     this.state = 'complete'
-                    console.log(res)
+                    this.$emit('create', this.form)
                 }).catch((err) => {
                     console.log(err)
                 })
@@ -65,12 +67,12 @@ export default {
 
             switch (taskType) {
                 case 'radio':
-                    newTask.variants = []
-                    newTask.answers = ''
+                    newTask.answers = []
+                    newTask.rightAnswers = ''
                     break
                 case 'checkbox':
-                    newTask.variants = []
                     newTask.answers = []
+                    newTask.rightAnswers = []
                     break
                 case 'input':
                     newTask.answers = ''
@@ -81,14 +83,16 @@ export default {
             this.form.tasks = [...this.form.tasks, newTask]
         },
         updateTask(index, task) {
+            const newTask = { ...task, number: index }
             if (this.form.tasks[index]) {
                 this.form.tasks = [
                     ...this.form.tasks.slice(0, index),
-                    task,
+                    newTask,
+
                     ...this.form.tasks.slice(index + 1)
                 ]
             } else {
-                this.form.tasks = [...this.form.tasks, task]
+                this.form.tasks = [...this.form.tasks, newTask]
             }
         },
         removeTask(index) {

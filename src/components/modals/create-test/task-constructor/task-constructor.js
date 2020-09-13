@@ -3,25 +3,25 @@ export default {
     props: {
         type: String,
         question: String,
-        variants: [Array, String],
         answers: [Array, String],
+        rightAnswers: [Array, String, Number],
         tasksTypes: Array
     },
     data() {
         return {
-            newVariant: ''
+            newAnswer: ''
         }
     },
     methods: {
         onChange(key, value) {
             const {
-                type, question, variants, answers
+                type, question, answers, rightAnswers
             } = this
             const updated = {
                 type,
                 question,
-                variants,
                 answers,
+                rightAnswers,
                 [key]: value
             }
             this.$emit('change', updated)
@@ -33,13 +33,13 @@ export default {
             return this.tasksTypes.find(({ key }) => key === type).label
         },
         addVariant(answer) {
-            const { id = 0 } = this.variants[this.variants.length - 1] || {}
-            const variant = {
+            const { id = 0 } = this.answers[this.answers.length - 1] || {}
+            const newAnswer = {
                 id: id + 1,
                 answer
             }
-            this.newVariant = ''
-            this.onChange('variants', [...this.variants, variant])
+            this.newAnswer = ''
+            this.onChange('answers', [...this.answers, newAnswer])
         }
     }
 }
