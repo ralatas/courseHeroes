@@ -47,7 +47,7 @@ export default {
                 }
             })
 
-            HTTP.post(`http://handh-ac972a82.localhost.run/register/${this.userType}`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
+            HTTP.post(`register/${this.userType}`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
                 .then(res => {
                     this.state = 'complete'
                     console.log(res)

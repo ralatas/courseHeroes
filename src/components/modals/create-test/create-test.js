@@ -51,7 +51,7 @@ export default {
         submitForm() {
             this.state = 'loading'
 
-            HTTP.post('http://handh-ac972a82.localhost.run/tests', this.form)
+            HTTP.post('/tests', this.form)
                 .then(() => {
                     this.state = 'complete'
                     this.$emit('create', this.form)

@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         getData() {
-            HTTP.get('http://handh-ac972a82.localhost.run/schedules', { params: { specialityId: 7 } })
+            HTTP.get('schedules', { params: { specialityId: 7 } })
                 .then(({ data }) => {
                     data.forEach(item => {
                         this.days[item.date] = item
@@ -32,7 +32,7 @@ export default {
                 })
         },
         getDataDir() {
-            HTTP.get('http://handh-ac972a82.localhost.run/specialities')
+            HTTP.get('specialities')
                 .then(({ data }) => {
                     this.directions = data
                     this.loading = false

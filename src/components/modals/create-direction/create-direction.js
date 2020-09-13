@@ -19,7 +19,7 @@ export default {
         }
     },
     created() {
-        HTTP.get('http://handh-ac972a82.localhost.run/teachers')
+        HTTP.get('teachers')
             .then(({ data }) => {
                 this.teachers = data
             }).catch((err) => {
@@ -43,7 +43,7 @@ export default {
                 data.append(key, this.form[key])
             })
 
-            HTTP.post('http://handh-ac972a82.localhost.run/specialities', data, { headers: { 'Content-Type': 'multipart/form-data' } })
+            HTTP.post('specialities', data, { headers: { 'Content-Type': 'multipart/form-data' } })
                 .then(res => {
                     this.state = 'complete'
                     console.log(res)

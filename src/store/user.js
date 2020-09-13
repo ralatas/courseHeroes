@@ -16,7 +16,7 @@ export default {
     },
     actions: {
         getUser({ commit }) {
-            HTTP.get('http://handh-ac972a82.localhost.run/user')
+            HTTP.get('user')
                 .then((user) => {
                     commit('setUser', user)
                 }).catch((err) => {
@@ -24,7 +24,7 @@ export default {
                 })
         },
         removeUser({ commit }, id) {
-            HTTP.delete(`http://handh-ac972a82.localhost.run/profile/${id}`)
+            HTTP.delete(`profile/${id}`)
                 .then(() => {
                     commit('setUser', null)
                 }).catch((err) => {
@@ -32,7 +32,7 @@ export default {
                 })
         },
         login({ commit, dispatch }, auth) {
-            return HTTP.post('http://handh-ac972a82.localhost.run/login', auth)
+            return HTTP.post('login', auth)
                 .then(({ token, user }) => {
                     localStorage.setItem('token', token)
                     HTTP.defaults.headers.common.Authorization = `Bearer ${token}`
@@ -46,7 +46,7 @@ export default {
                 })
         },
         logout({ commit }) {
-            return HTTP.post('http://handh-ac972a82.localhost.run/logout')
+            return HTTP.post('logout')
                 .then(() => {
                     localStorage.removeItem('token')
                     delete HTTP.defaults.headers.common.Authorization
