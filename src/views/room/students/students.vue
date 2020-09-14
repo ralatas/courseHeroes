@@ -10,6 +10,7 @@
                     <v-card>
                         <div class="d-flex flex-no-wrap justify-space-between">
                             <div>
+                                <b>{{ item.scoreBall ? item.scoreBall : '' }}</b>
                                 <v-card-title
                                     class="headline"
                                     v-text="item.name"

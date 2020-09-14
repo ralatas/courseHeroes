@@ -9,7 +9,7 @@
 
         <student-test
             v-if="showTest"
-            :test-id="9"
+            :test-id="te"
             :student-id="6"
             @close="showTest = false"
         />
@@ -57,7 +57,7 @@
                     :key="test.id"
                     cols="6"
                 >
-                    <v-card>
+                    <v-card @click="te = test.id">
                         <v-card-title class="d-flex headline justify-space-between">
                             {{test.title}}
 

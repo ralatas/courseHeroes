@@ -17,7 +17,8 @@ export default {
                 specialityId: null
             },
             specialities: [],
-            tests: []
+            tests: [],
+            te: null
         }
     },
     watch: {
